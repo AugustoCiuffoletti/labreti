@@ -19,10 +19,13 @@ network:
 EOF
 
 # sudo senza password
-scp studente studente@192.168.5.2:/etc/sudoers.d/studente
+cat > /etc/sudoers.d/studente <<EOF
+studente ALL=(ALL:ALL) NOPASSWD:ALL
+EOF
+sudo chmod 0440 /etc/sudoers.d/studente
 
 # autologin su tty01
-scp autologin@.service studente@192.168.5.2:/etc/systemd/system/autologin@.service
+cat autologin@.service > /etc/systemd/system/autologin@.service
 systemctl daemon-reload
 systemctl disable getty@tty1
 systemctl enable autologin@tty1
