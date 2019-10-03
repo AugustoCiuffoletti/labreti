@@ -8,7 +8,7 @@ fail() { echo -e "\n===\nErrore\n===\n"; exit 1; }
 if ! apt -y update; then fail; fi
 if ! apt -y upgrade; then fail; fi
 
-if ! apt -y install lubuntu-core^; then fail; fi
+if ! apt -y install lamp-server^; then fail; fi
 
 # Configurazione automatica rete hostonly
 cat > /etc/netplan/enp0s8.yaml <<EOF
@@ -45,5 +45,10 @@ systemctl daemon-reload
 systemctl disable getty@tty1
 systemctl enable autologin@tty1
 systemctl start autologin@tty1
+
+
+# set hostname
+sudo hostnamectl set-hostname server
+
 
 

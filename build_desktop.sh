@@ -7,8 +7,6 @@ fail() { echo -e "\n===\nErrore\n===\n"; exit 1; }
 if ! apt -y update; then fail; fi
 if ! apt -y upgrade; then fail; fi
 
-if ! apt -y install lubuntu-core^; then fail; fi
-
 # Configurazione automatica rete hostonly
 cat > /etc/netplan/enp0s8.yaml <<EOF
 # The hostonly network interface
@@ -42,7 +40,7 @@ if ! apt-get -y install virtualbox-guest-utils; then fail; fi
 if ! apt-get -y install wireshark packeth traceroute curl arduino wget geany; then fail; fi
 adduser studente wireshark
 # git conky
-if ! apt-get -y install git-core conky-all; then fail; fi
+if ! apt-get -y install conky-all; then fail; fi
 # python
 if ! apt-get -y install python python-pip; then fail; fi
 pip install virtualenv
@@ -58,6 +56,12 @@ then
 	echo "@conky -p5" >> /home/studente/.config/lxsession/LXDE/autostart
 fi
 echo "Fatto"
+
+# Wallpaper
+sudo cp wallpaper.jpg /etc/alternatives/desktop-background
+
+# set hostname
+sudo hostnamectl set-hostname desktop
 
 # CONFIGURAZIONE UTENTE
 echo "Altre configurazioni utente (come studente)... "
