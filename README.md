@@ -50,14 +50,13 @@ In the sequel I will refer to "desktop" and "server" VMs. The former is configur
 Clone the vanilla machine and name it "desktop": a linked clone is OK, and saves a lot of time and disk space.
 
 Run the VM and login as "studente".
-Install the "git" toolset and install the lubuntu-core tasksel package (notice the ^):
+Install the "git" toolset and the lubuntu-core tasksel package (notice the ^):
 
 ```
 $ sudo apt install -y git lubuntu-core^ 
-$ sudo halt
 ```
 
-Run again the VM, this time with a graphical interface. Login as student and open a terminal. Next clone this repository in the VM, move into the newly created directory and launch the configuration script, as follows:
+Shutdown and restart the VM, that this time offers a graphical interface. Login as "studente" and open a terminal. Next clone this repository in the VM, move into the newly created directory and launch the configuration script, as follows:
 
 ```
 $ git clone https://github.com/AugustoCiuffoletti/labreti
