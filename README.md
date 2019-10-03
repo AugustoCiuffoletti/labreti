@@ -51,16 +51,20 @@ Clone the vanilla machine and name it "desktop": a linked clone is OK, and saves
 
 Run the VM and login as "studente".
 Install the "git" toolset and install the lubuntu-core tasksel package (notice the ^):
+
 ```
 $ sudo apt install -y git lubuntu-core^ 
 $ sudo halt
 ```
+
 Run again the VM, this time with a graphical interface. Login as student and open a terminal. Next clone this repository in the VM, move into the newly created directory and launch the configuration script, as follows:
+
 ```
 $ git clone https://github.com/AugustoCiuffoletti/labreti
 $ cd labreti
 $ sudo bash build_desktop.sh
 ```
+
 When asked, allow the non-superuser to capture packets with Wireshark
 
 The desktop machine has a graphical desktop interface. There are some useful tools installed; among the others:
@@ -78,6 +82,8 @@ The desktop machine has a graphical desktop interface. There are some useful too
 ### Building the "server" VM
 
 Clone the vanilla machine as "server", next install git, clone the repo and launch the script:
+
+```
 $ sudo apt install git 
 $ git clone https://github.com/AugustoCiuffoletti/labreti
 $ cd labreti
@@ -91,4 +97,34 @@ The "server" VM is mainly used ass a target for packets. It is equipped with a l
 ### IMPORTANT
 
 When finished, edit the /etc/hosts file on both VM so that the correct hostname is associated to 127.0.0.1. If you followed my naming, replace "vanilla" with "desktop" or "server".
+
+## Prepare the delivery
+
+The two VirtualMachines are now ready to be delivered to the students. For this they are packed into one single OVA file.
+
+To reduce the size of such file it is preferable to use the "cleanup.sh" script, after the VM has been tested. The reduction in size is substantial, so this step is strongly encouraged. Also in this case, be patient, since HD cleanup is quite long. In the end, remove the "labreti" directory from student home:
+
+```
+$ cd labreti
+$ sudo bash cleanup.sh
+$ cd ..
+$ rm -rf labreti
+```
+
+and shut down the VMs.
+
+Now select the two VMs in the VirtualBox dashboard and follow the "Export Appliance..." wizard in the "File" menu. The size of the .ova file containing the two VMs is less than 2GB.
+
+## Using the Virtual Laboratory
+
+Each student has the VirtualBox application on the PC: its installation is a straightforward task. One local network needs to be configured: the teacher should give precise instructions about this, since it is preferable that all students share 
+the same IP addresses in their Virtual Laboratory.
+
+The .ova file can be distributed either on the local network, or distributed on a USB key. Once the file is on student's PC the two machines are extracted using the "Import virtual appliance..." wizard in the File menu.
+
+The requirements for student's PCs are the following:
+
+* Hardware virtualization is enabled (VT-x or AMD-V)
+* at least 1GB of available RAM (in excess of that required by the OS and other applications)
+* at least 15GB of HD available
 
