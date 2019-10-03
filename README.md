@@ -121,6 +121,12 @@ the same IP addresses in their Virtual Laboratory.
 
 The .ova file can be distributed either on the local network, or distributed on a USB key. Once the file is on student's PC the two machines are extracted using the "Import virtual appliance..." wizard in the File menu.
 
+In case you need to install other ubuntu packages on the VM, after the "cleanup.sh" operation you need to rebuild the package indexes:
+
+```
+sudo apt update
+```
+
 The requirements for student's PCs are the following:
 
 * Hardware virtualization is enabled (VT-x or AMD-V)
