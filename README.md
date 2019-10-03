@@ -1,4 +1,4 @@
-# labreti - A networking laboratory using Virtualbox
+# labreti - A networking laboratory using VirtualBox
 This repository contains the scripts to generate two VirtualBox virtual machines that can be used to perform experiments in networking using a PC.
 
 Creating the two VMs is a quite long process: with a good computer and network connection it takes one or two hours of work. The step are not many, but most of them take tens of minutes to complete.
