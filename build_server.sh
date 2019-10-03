@@ -39,6 +39,9 @@ sudo chmod a+x /etc/update-motd.d/92-vminfo
 
 if ! apt-get -y install traceroute curl wget; then fail; fi
 
+# set hostname
+sudo hostnamectl set-hostname server
+
 # autologin su tty01
 cat autologin@.service > /etc/systemd/system/autologin@.service
 systemctl daemon-reload
@@ -47,8 +50,7 @@ systemctl enable autologin@tty1
 systemctl start autologin@tty1
 
 
-# set hostname
-sudo hostnamectl set-hostname server
+
 
 
 

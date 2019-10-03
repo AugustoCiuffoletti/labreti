@@ -71,13 +71,7 @@ virtualenv Flask
 history -c
 EOF
 echo "Fatto"
-# Interessante, ma non più utilizzato
-#sudo -u telematica git clone https://augusto_ciuffoletti@bitbucket.org/augusto_ciuffoletti/labreti5.git Scrivania/labreti
-#rm .bash_history
-# Ora l'utente deve:
-# git config --global user.name "Your Name Comes Here"
-# git config --global user.email you@yourdomain.example.com
-# rhc setup
-echo -e "=====\nFinito: tutto bene! Ricorda di modificare la pagina iniziale del browser"
+
+echo -e "=====\nAll done\n====="
 
 
