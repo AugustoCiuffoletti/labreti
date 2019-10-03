@@ -1,9 +1,13 @@
 #!/bin/bash
-
 # ATTENZIONE: VA ESEGUITO SULLA MACCHINA VIRTUALE
 
-# Provato su mini ubuntu con lubuntu minimal
+set -e
 fail() { echo -e "\n===\nErrore\n===\n"; exit 1; }
+
+if ! apt -y update; then fail; fi
+if ! apt -y upgrade; then fail; fi
+
+if ! apt -y install lubuntu-core^; then fail; fi
 
 # Configurazione automatica rete hostonly
 cat > /etc/netplan/enp0s8.yaml <<EOF
@@ -29,8 +33,6 @@ autologin-user=studente
 autologin-user-timeout=5
 EOF
 
-if ! apt -y update; then fail; fi
-if ! apt -y upgrade; then fail; fi
 if ! apt -y install lubuntu-default-session; then fail; fi
 # dillo web browser
 if ! sudo apt -y install dillo; then fail; fi

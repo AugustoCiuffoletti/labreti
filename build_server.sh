@@ -2,7 +2,13 @@
 
 # ATTENZIONE: VA ESEGUITO SULLA MACCHINA VIRTUALE
 
+set -e
 fail() { echo -e "\n===\nErrore\n===\n"; exit 1; }
+
+if ! apt -y update; then fail; fi
+if ! apt -y upgrade; then fail; fi
+
+if ! apt -y install lubuntu-core^; then fail; fi
 
 # Configurazione automatica rete hostonly
 cat > /etc/netplan/enp0s8.yaml <<EOF
@@ -31,8 +37,6 @@ echo " * MAC address: $MACaddr"
 EOF
 sudo chmod a+x /etc/update-motd.d/92-vminfo
 
-if ! apt-get -y update; then fail; fi
-if ! apt-get -y upgrade; then fail; fi
 if ! apt-get -y install traceroute curl wget; then fail; fi
 
 # autologin su tty01
