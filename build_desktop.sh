@@ -37,7 +37,7 @@ if ! sudo apt -y install dillo; then fail; fi
 # Virtualbox guest utils (non sono sicuro che funzionino sempre...)
 if ! apt-get -y install virtualbox-guest-utils; then fail; fi
 # Lab tools
-if ! apt-get -y install wireshark packeth traceroute curl arduino wget geany; then fail; fi
+if ! apt-get -y install net-tools wireshark packeth traceroute curl arduino wget geany; then fail; fi
 adduser studente wireshark
 # git conky
 if ! apt-get -y install conky-all; then fail; fi
@@ -59,9 +59,6 @@ echo "Fatto"
 
 # Wallpaper
 sudo cp wallpaper.jpg /etc/alternatives/desktop-background
-
-# set hostname
-sudo hostnamectl set-hostname desktop
 
 # CONFIGURAZIONE UTENTE
 echo "Altre configurazioni utente (come studente)... "

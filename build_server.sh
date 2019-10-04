@@ -37,10 +37,7 @@ echo " * MAC address: $MACaddr"
 EOF
 sudo chmod a+x /etc/update-motd.d/92-vminfo
 
-if ! apt-get -y install traceroute curl wget; then fail; fi
-
-# set hostname
-sudo hostnamectl set-hostname server
+if ! apt-get -y install net-tools traceroute curl wget; then fail; fi
 
 # autologin su tty01
 cat autologin@.service > /etc/systemd/system/autologin@.service
