@@ -129,3 +129,5 @@ The `cleanup.sh` script has removed the package indexes. In case you need to ins
 sudo apt update
 ```
 In the "Activities" directory of this package you find a synthetic summary of many activities that can be carried out using the virtual laboratory.
+
+The Virtual Laboratory supported the course about networking "Telematica" given at the University of Pisa for the degree in Digital Humanities. The teaching material can be accessed at URL https://elearning.humnet.unipi.it/course/view.php?id=2263 and the temporary password for guest access is 'humtmt18'.
