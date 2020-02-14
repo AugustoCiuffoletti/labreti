@@ -37,7 +37,7 @@ echo " * MAC address: $MACaddr"
 EOF
 sudo chmod a+x /etc/update-motd.d/92-vminfo
 
-if ! apt-get -y install git net-tools traceroute curl wget; then fail; fi
+if ! apt-get -y install git net-tools traceroute curl wget make; then fail; fi
 
 # autologin su tty01
 cat autologin@.service > /etc/systemd/system/autologin@.service
